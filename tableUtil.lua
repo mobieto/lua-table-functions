@@ -102,20 +102,16 @@ function TableUtil:swap(tbl, a, b)
 	tbl[b] = tmp
 end
 
---// Takes in a (string) seperator (default '') and tuple tables, returns strings with elements combined seperated by seperator
-function TableUtil:toString(seperator, ...)
+--// Works like join() in Python, takes a string seperator and a table, returns a string containing each element in table seperated by seperator
+function TableUtil:toString(seperator, tbl)
 	seperator = seperator or ''
-	local cpytbl = {}
-	
-	for _, tbl in ipairs({...}) do
-		local result = ''		
-		for _, item in ipairs(tbl) do
-			result ..= tostring(item)..seperator
-		end
-		cpytbl[#cpytbl + 1] = result:sub(1, -2)
+	local result = ''
+			
+	for _, item in ipairs(tbl) do
+		result ..= tostring(item)..seperator
 	end
-	
-	return table.unpack(cpytbl)
+
+	return string.sub(result, 1, -2)
 end
 
 --// Returns a table sliced from specified start to end
