@@ -30,7 +30,7 @@ function TableUtil:map(mapFunc, ...)
 	return table.unpack(cpytbl)
 end
 
---// Takes in tuple tables, returns a table with all elements from input tables combined together
+--// Takes in tuple tables, returns a table with all elements from input tables combined
 function TableUtil:concat(...)
 	local result = {}
 	
