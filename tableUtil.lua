@@ -95,7 +95,7 @@ function TableUtil:flat(tbl)
 	return cpytbl
 end
 
---// Swaps specified indexes in table - directly edits table, does not return anything
+--// Swaps specified indexes in table - directly edits table, doesn't return anything
 function TableUtil:swap(tbl, a, b)
 	local tmp = tbl[a]
 	tbl[a] = tbl[b]
