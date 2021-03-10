@@ -95,6 +95,21 @@ function TableUtil:flat(tbl)
 	return cpytbl
 end
 
+--// Returns copy of provided table, works on >=1 dimensional tables
+function TableUtil:deepCopy(tbl)
+	local copy = {}
+
+	for key, value in pairs(tbl) do
+		if type(value) ~= 'table' then
+			copy[key] = value
+		else
+			copy[key] = DeepCopyTable(value)
+		end
+	end
+
+	return copy
+end
+
 --// Swaps specified indexes in table - directly edits table, does not return anything
 function TableUtil:swap(tbl, a, b)
 	local tmp = tbl[a]
