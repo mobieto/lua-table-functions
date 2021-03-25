@@ -143,5 +143,3 @@ end
 function TableUtil:max(tbl)
 	return math.max(table.unpack(tbl))
 end
-
-return TableUtil
