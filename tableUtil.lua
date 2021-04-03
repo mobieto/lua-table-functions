@@ -1,7 +1,7 @@
 local TableUtil = {}
 
 --// Takes in a filter function and tuple tables, returns tables with elements filtered
-function TableUtil:filter(filterFunc, ...)
+function TableUtil.filter(filterFunc, ...)
 	local cpytbl = {}
 	
 	for i, tbl in ipairs({...}) do
@@ -17,7 +17,7 @@ function TableUtil:filter(filterFunc, ...)
 end
 
 --// Takes in a map function and tuple tables, returns tables with values mapped
-function TableUtil:map(mapFunc, ...)
+function TableUtil.map(mapFunc, ...)
 	local cpytbl = {}
 	
 	for i, tbl in ipairs({...}) do
@@ -31,7 +31,7 @@ function TableUtil:map(mapFunc, ...)
 end
 
 --// Takes in tuple tables, returns a table with all elements from input tables combined
-function TableUtil:concat(...)
+function TableUtil.concat(...)
 	local result = {}
 	
 	for _, tbl in ipairs({...}) do
@@ -44,7 +44,7 @@ function TableUtil:concat(...)
 end
 
 --// Takes in tuple tables, returns each table in reversed format
-function TableUtil:reverse(...)
+function TableUtil.reverse(...)
 	local tbls = {}
 	
 	for i, tbl in ipairs({...}) do
@@ -65,7 +65,7 @@ function TableUtil:reverse(...)
 end
 
 --// Returns a flattened version of table, e.g. {1, {2, 3}, {4, 5, {6, 7, 8, {9, 10}}}} -> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-function TableUtil:flat(tbl)
+function TableUtil.flat(tbl)
 	local cpytbl = {}
 	
 	local function recurseFlat(item)
@@ -96,7 +96,7 @@ function TableUtil:flat(tbl)
 end
 
 --// Returns copy of provided table, works on >=1 dimensional tables
-function TableUtil:deepCopy(tbl)
+function TableUtil.deepCopy(tbl)
 	local copy = {}
 
 	for key, value in pairs(tbl) do
@@ -111,14 +111,14 @@ function TableUtil:deepCopy(tbl)
 end
 
 --// Swaps specified indexes in table - directly edits table, does not return anything
-function TableUtil:swap(tbl, a, b)
+function TableUtil.swap(tbl, a, b)
 	local tmp = tbl[a]
 	tbl[a] = tbl[b]
 	tbl[b] = tmp
 end
 
 --// Works like join() in Python, takes a string seperator and a table, returns a string containing each element in table seperated by seperator
-function TableUtil:toString(seperator, tbl)
+function TableUtil.toString(seperator, tbl)
 	seperator = seperator or ''
 	local result = ''
 			
@@ -130,16 +130,16 @@ function TableUtil:toString(seperator, tbl)
 end
 
 --// Returns a table sliced from specified start to end
-function TableUtil:slice(tbl, Start, End)
+function TableUtil.slice(tbl, Start, End)
 	return {table.unpack(tbl, Start, End)}
 end
 
 --// Returns smallest number in a table
-function TableUtil:min(tbl)
+function TableUtil.min(tbl)
 	return math.min(table.unpack(tbl))
 end
 
 --// Returns biggest number in a table
-function TableUtil:max(tbl)
+function TableUtil.max(tbl)
 	return math.max(table.unpack(tbl))
 end
