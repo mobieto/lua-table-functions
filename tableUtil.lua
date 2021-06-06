@@ -95,6 +95,21 @@ function TableUtil.flat(tbl)
 	return cpytbl
 end
 
+function TableUtil.reduce(tbl, reducer, ...)
+	local newTbl = TableUtil.concat({...}, tbl)
+	local out
+
+	for _, item in ipairs(newTbl) do
+		if not out then
+			out = item
+		else
+			out = reducer(out, item)
+		end
+	end
+
+	return out
+end
+
 --// Returns copy of provided table, works on >=1 dimensional tables
 function TableUtil.deepCopy(tbl)
 	local copy = {}
