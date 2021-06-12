@@ -95,6 +95,7 @@ function TableUtil.flat(tbl)
 	return cpytbl
 end
 
+--// Works like javascript reduce
 function TableUtil.reduce(tbl, reducer, ...)
 	local newTbl = TableUtil.concat({...}, tbl)
 	local out
