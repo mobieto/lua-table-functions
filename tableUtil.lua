@@ -119,7 +119,7 @@ function TableUtil.deepCopy(tbl)
 		if type(value) ~= 'table' then
 			copy[key] = value
 		else
-			copy[key] = DeepCopyTable(value)
+			copy[key] = TableUtil.deepCopy(value)
 		end
 	end
 
