@@ -133,18 +133,6 @@ function TableUtil.swap(tbl, a, b)
 	tbl[b] = tmp
 end
 
---// Works like join() in Python, takes a string seperator and a table, returns a string containing each element in table seperated by seperator
-function TableUtil.toString(seperator, tbl)
-	seperator = seperator or ''
-	local result = ''
-			
-	for _, item in ipairs(tbl) do
-		result ..= tostring(item)..seperator
-	end
-
-	return string.sub(result, 1, -2)
-end
-
 --// Returns a table sliced from specified start to end
 function TableUtil.slice(tbl, Start, End)
 	return {table.unpack(tbl, Start, End)}
