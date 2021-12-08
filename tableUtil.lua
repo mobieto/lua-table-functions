@@ -55,7 +55,7 @@ function TableUtil.reverse(...)
 			local End = (#cpytbl + 1) - i
 			local Start = i
 			
-			TableUtil:swap(cpytbl, Start, End)
+			TableUtil.swap(cpytbl, Start, End)
 		end
 		
 		tbls[i] = cpytbl
