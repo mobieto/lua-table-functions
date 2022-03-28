@@ -1,3 +1,3 @@
 # lua table functions
 
-some table functions that lua doesnt have
+some homemade table functions
